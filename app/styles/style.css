@@ -1,0 +1,100 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+}
+
+.btnShowForm{
+    font-size: 4rem;
+    border: 6px solid black;
+    border-radius: 50%;
+    padding: 0 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    cursor: pointer;
+}
+
+/* ENTRY */
+#entries{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.entry{
+    position: absolute;
+    background: rgb(134, 122, 99);
+    text-align: center;
+    padding: .5rem;
+    cursor: pointer;
+    clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
+}
+
+.entry::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-color: brown;
+}
+
+.entryFull{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+}
+
+.entryFull .container{
+    background: wheat;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* ENTRY FORM */
+.newEntryForm{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+}
+
+.newEntryForm > div{
+    background: wheat;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.newEntryForm h2{
+    margin-bottom: 1rem;
+}
+
+.newEntryForm .line{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+}
+
+.newEntryForm .buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.d-none{
+    display: none;
+}
