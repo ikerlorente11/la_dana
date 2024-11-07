@@ -27,9 +27,11 @@ body{
 
 .entry{
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: rgb(134, 122, 99);
     text-align: center;
-    padding: .5rem;
     cursor: pointer;
     clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
 }
@@ -95,6 +97,41 @@ body{
     justify-content: space-between;
 }
 
+/* ENTRY FULL */
+.socialMediaLinks{
+    margin-top: 1rem;
+}
+
+.socialMediaLinks > a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.socialMediaLinks > a > i{
+    border: 2px solid black;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+/* TICKET MACHINE */
+.machineContainer{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#ticketMachine{
+    text-align: center;
+    background: lightskyblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* GENERAL */
 .d-none{
     display: none;
 }

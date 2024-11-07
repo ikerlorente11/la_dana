@@ -10,7 +10,15 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <h1>La Dana Relatos</h1>
+    <!-- <h1>La Dana Relatos</h1>
+    <button id="nextEntryBtn">Recoge relato</button> -->
+
+    <div class="machineContainer">
+        <div id="ticketMachine">
+            <h1>La Dana</h1>
+            <h3>Recoge una historia</h3>
+        </div>
+    </div>
 
     <div id="entries">
         
@@ -51,6 +59,11 @@
             <p class="description"></p>
             <p class="author"></p>
             <p class="mail"></p>
+            <div class="socialMediaLinks">
+                <a id="twitter" href="https://twitter.com/intent/tweet?text=Mira%20esta%20página&url=http%3A%2F%2Flocalhost%3A8080%2F%3Fid%3D12" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+            </div>
         </div>
     </div>
 
