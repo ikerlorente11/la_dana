@@ -1,0 +1,76 @@
+{
+    "styles": [
+        {
+            "id": 1,
+            "color": "#C1E745",
+            "background": 0,
+            "backgroundValue": "#4FA057"
+        },
+        {
+            "id": 2,
+            "color": "#EB013C",
+            "background": 0,
+            "backgroundValue": "#DCA5F1"
+        },
+        {
+            "id": 3,
+            "color": "#7284D4",
+            "background": 0,
+            "backgroundValue": "#C9E7FA"
+        },
+        {
+            "id": 4,
+            "color": "#363434",
+            "background": 0,
+            "backgroundValue": "#F9F2A2"
+        },
+        {
+            "id": 5,
+            "color": "#E0151A",
+            "background": 0,
+            "backgroundValue": "#FFFFFF"
+        },
+        {
+            "id": 6,
+            "color": "#D1D1D1",
+            "background": 0,
+            "backgroundValue": "#020202"
+        },
+        {
+            "id": 7,
+            "color": "#FF8D00",
+            "background": 0,
+            "backgroundValue": "#E4E4E4"
+        },
+        {
+            "id": 8,
+            "color": "#050608",
+            "background": 0,
+            "backgroundValue": "#D9C8FF"
+        },
+        {
+            "id": 9,
+            "color": "#101112",
+            "background": 1,
+            "backgroundValue": "9.jpg"
+        },
+        {
+            "id": 10,
+            "color": "#101112",
+            "background": 1,
+            "backgroundValue": "10.jpg"
+        },
+        {
+            "id": 11,
+            "color": "#101112",
+            "background": 1,
+            "backgroundValue": "11.png"
+        },
+        {
+            "id": 12,
+            "color": "#101112",
+            "background": 1,
+            "backgroundValue": "12.jpg"
+        }
+    ]
+}

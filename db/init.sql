@@ -1,280 +1,332 @@
 CREATE TABLE IF NOT EXISTS entries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     author VARCHAR(255),
-    mail VARCHAR(255),
+    location VARCHAR(255),
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
+    font INT NOT NULL,
+    style INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO
     entries (
         author,
-        mail,
+        location,
         title,
-        description
+        description,
+        font,
+        style
     )
 VALUES (
-        NULL,
-        NULL,
-        'El río desbordado',
-        'El río local se desbordó tras una intensa lluvia, inundando las zonas bajas de la ciudad.'
+        'Alice Smith',
+        'New York',
+        'Exploring New York',
+        'A brief story about the adventures in New York.',
+        1,
+        7
     ),
     (
-        'Anonimo',
-        NULL,
-        'Inundación en el barrio',
-        'Los vecinos del barrio enfrentaron graves daños por la inundación que arrasó sus casas y comercios.'
+        'John Doe',
+        'London',
+        'A Day in London',
+        'Experiencing the beautiful sights of London.',
+        3,
+        5
     ),
     (
-        'Carlos López',
-        'carlos@mail.com',
-        'La tormenta que nunca terminó',
-        'Durante una tormenta que duró más de 48 horas, el nivel del agua superó las expectativas, afectando miles de familias.'
+        'Emma Johnson',
+        'Paris',
+        'Paris Lights',
+        'A romantic evening under the Paris lights.',
+        2,
+        8
     ),
     (
-        'María García',
-        'maria@mail.com',
-        'Desbordamiento de ríos en la región',
-        'El desbordamiento de varios ríos dejó a decenas de comunidades aisladas, provocando un caos generalizado.'
+        'Robert Brown',
+        'Berlin',
+        'Berlin Journey',
+        'Discovering the vibrant culture of Berlin.',
+        4,
+        10
     ),
     (
-        'Juan Pérez',
-        NULL,
-        'Noche de terror en el sur',
-        'Una fuerte lluvia nocturna provocó una crecida del río, sorprendiendo a todos mientras dormían.'
+        'Lucy Davis',
+        'Tokyo',
+        'Tokyo Nightlife',
+        'An exciting night exploring Tokyo\'s nightlife.',
+        5,
+        11
     ),
     (
-        'Sandra Martínez',
-        'sandra@mail.com',
-        'Evacuación urgente',
-        'La alarma de evacuación fue emitida cuando el río alcanzó niveles peligrosos en las primeras horas de la mañana.'
+        'Michael Miller',
+        'Rome',
+        'Roman Architecture',
+        'An insight into the ancient architecture of Rome.',
+        3,
+        9
     ),
     (
-        'David Hernández',
-        NULL,
-        'Los daños de la última tormenta',
-        'El paso de una tormenta tropical dejó severas inundaciones que afectaron a más de mil hogares.'
+        'Sophia Garcia',
+        'Madrid',
+        'Madrid Magic',
+        'The beautiful and historic city of Madrid.',
+        2,
+        4
     ),
     (
-        'Patricia Ramírez',
-        'patricia@mail.com',
-        'El colapso de la ciudad',
-        'La ciudad no estaba preparada para la magnitud de la inundación que se desató inesperadamente.'
+        'David Martinez',
+        'Lisbon',
+        'Lisbon Love',
+        'Exploring the charm of Lisbon.',
+        1,
+        6
     ),
     (
-        'Luis González',
-        NULL,
-        'Ríos de agua en la calle',
-        'Las calles se convirtieron en ríos, con vehículos arrastrados por las aguas.'
+        'James Anderson',
+        'Amsterdam',
+        'Amsterdam Canals',
+        'A day spent cruising through the canals.',
+        4,
+        8
     ),
     (
-        'Raúl Torres',
-        'raul@mail.com',
-        'Rapiña en tiempos de inundación',
-        'El caos de la inundación fue aprovechado por algunos para robar bienes de las casas afectadas.'
+        'Mia Wilson',
+        'Dubai',
+        'Dubai Skyline',
+        'The towering skyscrapers of Dubai.',
+        5,
+        3
     ),
     (
-        'Alba Martín',
-        'alba@mail.com',
-        'El rescate en helicóptero',
-        'Durante la inundación, los equipos de rescate tuvieron que usar helicópteros para salvar a personas atrapadas en los techos.'
+        'Ethan Thomas',
+        'Istanbul',
+        'Mystical Istanbul',
+        'The rich history and culture of Istanbul.',
+        1,
+        12
     ),
     (
-        'Antonio Díaz',
-        'antonio@mail.com',
-        'El barrio bajo',
-        'En los barrios más bajos, las aguas arrasaron con todo lo que encontraron a su paso.'
+        'Ava White',
+        'Barcelona',
+        'Barcelona Beaches',
+        'A relaxing day at Barcelona\'s beaches.',
+        2,
+        7
     ),
     (
-        'Isabel Fernández',
-        NULL,
-        'Los recuerdos perdidos',
-        'Las familias perdieron recuerdos irremplazables en el desastre causado por las lluvias.'
+        'Daniel Harris',
+        'Prague',
+        'Prague Charm',
+        'The enchanting streets of Prague.',
+        3,
+        11
     ),
     (
-        'José Luis González',
-        'jose.luis@mail.com',
-        'Una vida flotante',
-        'Las personas se vieron obligadas a utilizar botes para trasladarse por las calles inundadas.'
+        'Olivia Martin',
+        'Vienna',
+        'Vienna\'s Music',
+        'The classical music heritage of Vienna.',
+        1,
+        9
     ),
     (
-        'Laura Jiménez',
-        'laura@mail.com',
-        'El río nunca fue tan peligroso',
-        'La fuerza del río dejó claro que la naturaleza puede ser impredecible y peligrosa.'
+        'Liam King',
+        'Dublin',
+        'Irish Tales',
+        'Stories from the heart of Ireland.',
+        4,
+        6
     ),
     (
-        'Pedro Romero',
-        'pedro@mail.com',
-        'El refugio improvisado',
-        'Las familias afectadas por la inundación tuvieron que refugiarse en escuelas y otros edificios públicos.'
+        'Charlotte Lee',
+        'Helsinki',
+        'Winter in Helsinki',
+        'Snowy landscapes and warm drinks in Helsinki.',
+        5,
+        10
     ),
     (
-        'Carmen López',
-        'carmen@mail.com',
-        'Lluvias constantes',
-        'Las lluvias constantes durante días provocaron que los ríos se desbordaran sin previo aviso.'
+        'Noah Walker',
+        'Copenhagen',
+        'Copenhagen Biking',
+        'Exploring the city on two wheels.',
+        2,
+        4
     ),
     (
-        'José Martínez',
-        'jose.martinez@mail.com',
-        'La presa colapsó',
-        'El colapso de la presa generó una ola de agua que arrasó con todo a su paso.'
+        'Isabella Hall',
+        'Stockholm',
+        'Swedish Style',
+        'A day in the life of Stockholm.',
+        3,
+        8
     ),
     (
-        'Ana Sánchez',
-        'ana@mail.com',
-        'Inundación en la zona rural',
-        'Las zonas rurales fueron las más afectadas, ya que las infraestructuras de drenaje eran insuficientes.'
+        'William Scott',
+        'Seoul',
+        'Seoul\'s Street Food',
+        'A culinary journey through Seoul.',
+        5,
+        5
     ),
     (
-        'Ricardo Pérez',
-        'ricardo@mail.com',
-        'Las aguas no cesaban',
-        'La sensación de desesperación creció mientras las aguas continuaban subiendo sin freno.'
+        'Mason Adams',
+        'Beijing',
+        'Historical Beijing',
+        'Exploring the Great Wall and Forbidden City.',
+        1,
+        7
     ),
     (
-        'Elena García',
-        'elena@mail.com',
-        'El rescate en medio de la tormenta',
-        'Voluntarios valientes salieron a rescatar a las personas atrapadas en sus casas durante la tormenta.'
+        'Luna Moore',
+        'Mumbai',
+        'Mumbai Spice',
+        'The vibrant spices and markets of Mumbai.',
+        4,
+        6
     ),
     (
-        'Juan Carlos Díaz',
-        'juan.carlos@mail.com',
-        'Reflexión tras el desastre',
-        'Tras la catástrofe, la comunidad reflexionó sobre la importancia de la prevención ante desastres naturales.'
+        'Lucas Taylor',
+        'Sydney',
+        'Sydney Beaches',
+        'A sunny day at Bondi Beach.',
+        2,
+        12
     ),
     (
-        'Marta Rodríguez',
-        'marta@mail.com',
-        'El regreso a casa',
-        'Las personas regresaron a sus hogares para encontrar que todo lo que tenían había sido destruido por el agua.'
+        'Evelyn Jackson',
+        'Cape Town',
+        'Cape of Good Hope',
+        'Discovering the natural beauty of Cape Town.',
+        3,
+        9
     ),
     (
-        'José López',
-        'jose.lopez@mail.com',
-        'El muro que no resistió',
-        'Un muro de contención cedió por la presión del agua, causando la inundación de la ciudad.'
+        'Owen Hernandez',
+        'Buenos Aires',
+        'Buenos Aires Tango',
+        'Feeling the rhythm of tango in Buenos Aires.',
+        1,
+        11
     ),
     (
-        'Félix Hernández',
-        'felix@mail.com',
-        'Los evacuados',
-        'Miles de personas fueron evacuadas de sus casas debido a las fuertes lluvias y la amenaza de inundación.'
+        'Amelia Evans',
+        'Los Angeles',
+        'Hollywood Dream',
+        'The glitz and glamour of Hollywood.',
+        5,
+        4
     ),
     (
-        'Cristina Díaz',
-        'cristina@mail.com',
-        'Vivir entre ruinas',
-        'Las familias intentan reconstruir sus vidas mientras las ruinas de sus casas se sumergen en el lodo.'
+        'Henry Collins',
+        'Montreal',
+        'Montreal Jazz',
+        'Enjoying the Montreal Jazz Festival.',
+        3,
+        10
     ),
     (
-        'José Antonio Martínez',
-        'jose.antonio@mail.com',
-        'La sorpresa de la madrugada',
-        'Una repentina crecida del río a mitad de la noche causó estragos en la ciudad.'
+        'Ella Thompson',
+        'Vancouver',
+        'Vancouver Outdoors',
+        'Exploring the nature around Vancouver.',
+        4,
+        5
     ),
     (
-        'Raquel Sánchez',
-        'raquel@mail.com',
-        'El agua sube rápidamente',
-        'No hubo tiempo de reacción; el agua subió tan rápido que sorprendió a todos.'
+        'Benjamin Carter',
+        'Rio de Janeiro',
+        'Rio Carnival',
+        'Dancing through Rio\'s famous carnival.',
+        1,
+        8
     ),
     (
-        'José Luis Ramírez',
-        'jose.luis.ramirez@mail.com',
-        'El puente colapsado',
-        'El puente que conectaba dos regiones colapsó, dejando a miles de personas atrapadas en el otro lado.'
+        'Sofia White',
+        'Moscow',
+        'Moscow\'s Architecture',
+        'Admiring the historic buildings of Moscow.',
+        5,
+        6
     ),
     (
-        'Lucía Fernández',
-        'lucia@mail.com',
-        'Fuerza de la naturaleza',
-        'Lo que parecía ser una tormenta común se convirtió en una de las peores inundaciones de la historia de la región.'
+        'Jack Martinez',
+        'Mexico City',
+        'Mexico City Streets',
+        'Wandering through the colorful streets.',
+        2,
+        7
     ),
     (
-        'Javier González',
-        'javier@mail.com',
-        'La llamada de auxilio',
-        'Decenas de llamadas de auxilio fueron recibidas, pidiendo rescate a personas atrapadas en sus hogares.'
+        'Scarlett Robinson',
+        'Athens',
+        'Ancient Athens',
+        'Walking through the ruins of Athens.',
+        4,
+        3
     ),
     (
-        'Beatriz Pérez',
-        'beatriz@mail.com',
-        'Desesperación por la falta de agua potable',
-        'Después de la inundación, la falta de agua potable se convirtió en un grave problema para los sobrevivientes.'
+        'Aiden Clark',
+        'Bangkok',
+        'Bangkok Markets',
+        'A sensory journey through Bangkok\'s markets.',
+        1,
+        9
     ),
     (
-        'Carlos Rodríguez',
-        'carlos.rodriguez@mail.com',
-        'La ciudad convertida en lago',
-        'Las calles de la ciudad se convirtieron en un enorme lago, con el agua cubriendo todo a su paso.'
+        'Chloe Ramirez',
+        'Edinburgh',
+        'Scottish Castles',
+        'Visiting the castles in Edinburgh.',
+        2,
+        10
     ),
     (
-        'Sandra López',
-        'sandra.lopez@mail.com',
-        'El final del desastre',
-        'Con el paso de los días, las aguas finalmente comenzaron a bajar y las personas empezaron a evaluar los daños.'
+        'Daniel Johnson',
+        'Seville',
+        'Flamenco Nights',
+        'Experiencing flamenco in Seville.',
+        3,
+        12
     ),
     (
-        'Eduardo Martínez',
-        'eduardo@mail.com',
-        'El primer rescate',
-        'Un equipo de rescatistas fue el primero en llegar al área afectada, salvando vidas en condiciones extremas.'
+        'Victoria Reed',
+        'Budapest',
+        'Budapest Baths',
+        'Relaxing in the thermal baths of Budapest.',
+        5,
+        6
     ),
     (
-        'Cristina Pérez',
-        'cristina.perez@mail.com',
-        'La tierra se tragó todo',
-        'El agua arrasó con casas, coches y cultivos; nada quedó intacto.'
+        'Julian Morris',
+        'Oslo',
+        'Oslo in Winter',
+        'Witnessing the Northern Lights.',
+        4,
+        8
     ),
     (
-        'Pablo Sánchez',
-        'pablo@mail.com',
-        'Desbordamiento de alcantarillado',
-        'El sistema de alcantarillado no resistió el volumen de agua, causando graves inundaciones en las calles principales.'
+        'Grace Scott',
+        'Zurich',
+        'Swiss Alps',
+        'Skiing in the Swiss Alps.',
+        2,
+        11
     ),
     (
-        'Vanessa Torres',
-        'vanessa@mail.com',
-        'El milagro del rescate',
-        'Un rescate milagroso se produjo cuando un equipo de bomberos logró salvar a una familia atrapada en un árbol.'
+        'Gabriel Phillips',
+        'Havana',
+        'Havana\'s Charm',
+        'Exploring the old streets of Havana.',
+        1,
+        7
     ),
     (
-        'Miguel Ramírez',
-        'miguel@mail.com',
-        'Las primeras lluvias',
-        'Las primeras lluvias fueron la señal de que algo más grande estaba por llegar, pero nadie anticipó la magnitud del desastre.'
-    ),
-    (
-        'Paula González',
-        'paula@mail.com',
-        'Inundación en la estación',
-        'La estación de tren se inundó rápidamente, dejando varados a miles de viajeros durante horas.'
-    ),
-    (
-        'Jorge Fernández',
-        'jorge@mail.com',
-        'La lucha contra el agua',
-        'La comunidad se unió para colocar sacos de arena y detener el avance del agua, pero fue en vano.'
-    ),
-    (
-        'Sofía López',
-        'sofia@mail.com',
-        'Inundación en las montañas',
-        'Las fuertes lluvias también afectaron las zonas montañosas, provocando deslizamientos que bloquearon carreteras.'
-    ),
-    (
-        'Alberto Sánchez',
-        'alberto@mail.com',
-        'Las aguas arrasaron',
-        'La velocidad de la corriente fue tal que ningún vehículo pudo resistir el embate de las aguas.'
-    ),
-    (
-        'Marta González',
-        'marta.gonzalez@mail.com',
-        'Rescate en balsa',
-        'Los equipos de rescate tuvieron que usar balsas para salvar a las personas atrapadas en las zonas más altas de la ciudad.'
+        'Victoria Turner',
+        'Warsaw',
+        'Warsaw\'s History',
+        'Learning about Warsaw\'s past.',
+        5,
+        4
     );

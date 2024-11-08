@@ -1,0 +1,44 @@
+{
+    "fonts": [
+        {
+            "id": 1,
+            "name": "Libre Baskerville",
+            "style": "italic",
+            "weight": 400,
+            "lineHeight": 37.52,
+            "size": 37.52
+        },
+        {
+            "id": 2,
+            "name": "Permanent Marker",
+            "style": null,
+            "weight": 400,
+            "lineHeight": 47.75,
+            "size": 36.75
+        },
+        {
+            "id": 3,
+            "name": "Oswald",
+            "style": null,
+            "weight": 600,
+            "lineHeight": 47.75,
+            "size": 36.75
+        },
+        {
+            "id": 4,
+            "name": "Covered By Your Grace",
+            "style": null,
+            "weight": 400,
+            "lineHeight": 47.75,
+            "size": 46.83
+        },
+        {
+            "id": 5,
+            "name": "Space Mono",
+            "style": null,
+            "weight": 400,
+            "lineHeight": 37.5,
+            "size": 30.61
+        }
+    ]
+}
