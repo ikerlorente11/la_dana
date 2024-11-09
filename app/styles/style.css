@@ -5,8 +5,6 @@
 }
 
 body{
-    height: 100vh;
-    width: 100vw;
     margin: 0;
     overflow: hidden;
     background: #0C0E12;
@@ -25,6 +23,8 @@ body{
     line-height: 43.57px;
     height: fit-content;
     text-decoration: none;
+    position: sticky;
+    z-index: 100;
 }
 
 #title:hover{
@@ -49,6 +49,7 @@ body{
     font-weight: 400;
     text-transform: uppercase;
     text-decoration: none;
+    z-index: 100;
 }
 
 #addEntryBtn:hover, #infoBtn:hover, #returnBtn:hover{
@@ -70,6 +71,7 @@ body{
     top: 0;
     left: 0;
     display: flex;
+    position: absolute;
 }
 
 .entry{
@@ -159,6 +161,9 @@ body{
     width: 85%;
     margin: auto;
     line-height: 28px;
+    max-height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .entryFull .footer{
@@ -225,7 +230,6 @@ body{
 .newContent{
     width: 1100px;
     margin: auto;
-    padding-right: 3rem;
 }
 
 .newContent h1{
@@ -318,6 +322,7 @@ body{
     font-weight: 400;
     line-height: 28px;
     margin: 0 auto;
+    margin-bottom: 1rem;
 
     flex-grow: 1;
     resize: none;
@@ -429,6 +434,7 @@ body{
 }
 
 #notification {
+    width: 200px;
     font-family: 'Inter';
     font-size: 18px;
     font-weight: 600;
@@ -457,15 +463,15 @@ body{
 
 @media (max-width: 450px) {
     body{
-        padding: 1rem;
+        padding: 0;
     }
 
     #title{
         font-size: 16.55px;
         line-height: 20.03px;
-        width: 100%;
+        width: 200px;
         display: block;
-        margin-bottom: 2rem;
+        margin: 1rem 0 2rem 1rem;
     }
 
     #info .content{
@@ -484,11 +490,11 @@ body{
     }
 
     #footer {
-        padding: 0 1rem 1rem 0;
+        padding: 0 1rem 1rem 1rem;
     }
 
     #info #footer {
-        padding: .5rem 0;
+        padding: 0 1rem 1rem 1rem;
     }
 
     .entry h2 {
@@ -555,7 +561,7 @@ body{
     }
 
     #navBtns {
-        padding: 0 1rem 1rem 0;
+        padding: 0 1rem 1rem 1rem;
     }
 
     #navBtns span{
@@ -565,7 +571,6 @@ body{
 
     .newContent{
         width: 95%;
-        margin-left: -.4rem;
     }
 
     .newContent > div{
@@ -583,6 +588,7 @@ body{
         max-height: 60vh;
         overflow: scroll;
         margin: 0 auto;
+        padding-top: 10px;
     }
 
     .newContent .font-type, .newContent .style-type {
@@ -633,4 +639,23 @@ body{
         font-size: 8px;
         line-height: 12px;
     }
+}
+
+/* Para navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Fondo de la pista transparente */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cecece; /* Color de la barra de desplazamiento */
+    border-radius: 10px;       /* Borde redondeado de la barra */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #bdbdbd; /* Color de la barra al pasar el cursor */
 }
