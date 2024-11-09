@@ -1,5 +1,5 @@
 const entryWidth = 414;
-const entryHeight = 500;
+const entryHeight = 414;
 const machineWidth = 350;
 const machineHeight = 350;
 const entryRenderTopSpacing = 100;
@@ -7,6 +7,8 @@ const topRenderSpacing = 160;
 const entryRenderHorizontalSpacing = 50;
 const defaultEntryQuantity = 20;
 const enableMachine = false;
+
+let zIndexMax = 10;
 
 const url = `${window.location.origin}${window.location.pathname}`;
 const text = "Mira esta página";
@@ -181,6 +183,9 @@ function createEntry(data, random, machine){
     entry.addEventListener('dragstart', (event) => {
         event.preventDefault();
 
+        event.target.style.zIndex  = zIndexMax;
+        zIndexMax++;
+
         const clone = event.target.cloneNode(true);
         clone.style.pointerEvents = 'none';
         document.body.appendChild(clone);
@@ -211,6 +216,10 @@ function createEntry(data, random, machine){
 
     entry.addEventListener("touchstart", (event) => {
         event.preventDefault();
+
+        entry.style.zIndex  = zIndexMax;
+        zIndexMax++;
+
         const touch = event.touches[0];
         startX = touch.pageX;
         startY = touch.pageY;

@@ -10,8 +10,8 @@
         $location = !empty($_POST['location']) ? "'" . $conn->real_escape_string($_POST['location']) . "'" : 'NULL';
         $title = $conn->real_escape_string($_POST['title']);
         $description = $conn->real_escape_string($_POST['description']);
-        $font = "'" . $_POST['font'] . "'";
-        $style = "'" . $_POST['style'] . "'";
+        $font = $_POST['font'];
+        $style = $_POST['style'];
 
         $sql = "INSERT INTO entries (author, location, title, description, font, style) VALUES ($author, $location, '$title', '$description', $font, $style)";
         

@@ -208,8 +208,8 @@ function checkForm(){
                 location: location.value,
                 title: title.value,
                 description: textarea.value,
-                font: JSON.stringify(selectedFont),
-                style: JSON.stringify(selectedStyle)
+                font: selectedFont.id,
+                style: selectedStyle.id
             };
 
             $.ajax({

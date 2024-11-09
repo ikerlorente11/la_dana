@@ -69,18 +69,6 @@ body{
     background: rgb(134, 122, 99);
     text-align: center;
     cursor: pointer;
-    clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
-}
-
-.entry::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    background-color: rgb(179, 179, 179);
 }
 
 .entry h2{
@@ -169,7 +157,7 @@ body{
 
 /* ENTRY FULL */
 #entryFull{
-    z-index: 10;
+    z-index: 10000;
 }
 
 /* TICKET MACHINE */
@@ -187,7 +175,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 1;
+    z-index: 1000;
 }
 
 /* NEW ENTRY */
@@ -246,7 +234,7 @@ body{
     height: 1068px;
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 1000;
 }
 
 #page form{
@@ -328,7 +316,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 10001;
 }
 
 #share{
@@ -392,11 +380,17 @@ body{
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
+    z-index: 10001;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #notification.show {
     opacity: 1;
-    visibility: visible; /* Hace que sea visible */
+    visibility: visible;
+}
+
+@media (max-width: 355px) {
+    #title{
+        color: red;
+    }
 }
