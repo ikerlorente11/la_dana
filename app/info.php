@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="js/controller.js" defer></script>
     <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
 </head>
 <body id="info">
     <a id="title" href="/">La Dana Relatos</a>

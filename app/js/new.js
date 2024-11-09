@@ -8,7 +8,8 @@ function showPage(){
 
     switch(page){
         case 0:
-            next.querySelector('span').classList.add("d-none");
+            next.querySelector('.text').classList.add("d-none");
+            next.querySelector('.arrow').classList.remove("d-none");
 
             if(selectedFont){
                 addPagination(0,1)
@@ -18,7 +19,8 @@ function showPage(){
             $('#font').removeClass('d-none');
             break;
         case 1:
-            next.querySelector('span').classList.add("d-none");
+            next.querySelector('.text').classList.add("d-none");
+            next.querySelector('.arrow').classList.remove("d-none");
 
             if(selectedStyle){
                 addPagination(1,1)
@@ -28,7 +30,8 @@ function showPage(){
             $('#style').removeClass('d-none');
             break;
         case 2:
-            next.querySelector('span').classList.remove("d-none");
+            next.querySelector('.text').classList.remove("d-none");
+            next.querySelector('.arrow').classList.add("d-none");
 
             addPagination(1,0)
             $('#page').removeClass('d-none');
@@ -106,7 +109,9 @@ function createFont(font){
 
     container.addEventListener("click", () => {
         $(".font-type").css("border", "none")
+        $(".font-type").css("opacity", ".5")
         container.style.border = "1px solid #868686";
+        container.style.opacity = "1";
         selectedFont = font;
         loadStyles();
         showPage();
@@ -142,7 +147,9 @@ function createStyle(style){
 
     container.addEventListener("click", () => {
         $(".style-type").css("border", "none")
+        $(".style-type").css("opacity", ".5")
         container.style.border = "1px solid #868686";
+        container.style.opacity = "1";
         selectedStyle = style;
         loadPage()
         showPage();

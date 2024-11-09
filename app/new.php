@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="js/new.js" defer></script>
     <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
 </head>
 <body>
     <a id="title" href="/">La Dana Relatos</a>
@@ -35,7 +37,7 @@
 
     <div id="navBtns">
         <span id="prev"><---</span>
-        <span id="next"><span class="d-none">Publicar</span>---></span>
+        <span id="next"><span class="text d-none">Publicar</span><span class="arrow">---></span></span>
     </div>
 </body>
 </html>

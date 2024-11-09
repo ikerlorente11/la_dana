@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="js/controller.js" defer></script>
     <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
 </head>
 <body>
     <div id="notification">URL copiada al portapapeles</div>
@@ -25,6 +27,7 @@
     </div>
 
     <div id="entryFull" class="entryFull d-none">
+        <i id="entryClose" class="fa-solid fa-x shareClose"></i>
         <div class="container">
             <h2 class="title"></h2>
             <p class="description"></p>
@@ -37,9 +40,12 @@
 
     <div id="shareContainer" class="d-none">
         <div id="share">
-            <i id="shareClose" class="fa-solid fa-x shareClose"></i>
+            <div class="closeContainer"><i id="shareClose" class="fa-solid fa-x shareClose"></i></div>
             <p>Comparte este relato y ayúdanos a hacer visible lo que muchos han vivido. Juntos podemos dar voz a estas historias de lucha</p>
             <div class="shareBtns">
+                <a id="tiktok" href="" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
                 <a id="twitter" href="" target="_blank">
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
@@ -48,6 +54,9 @@
                 </a>
                 <a id="facebook" href="" target="_blank">
                     <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a id="whatsapp" href="" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
                 </a>
             </div>
         </div>

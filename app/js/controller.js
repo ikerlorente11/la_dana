@@ -1,12 +1,14 @@
-const entryWidth = 414;
-const entryHeight = 414;
+let entryWidth = 414;
+let entryHeight = 314;
 const machineWidth = 350;
 const machineHeight = 350;
 const entryRenderTopSpacing = 100;
-const topRenderSpacing = 160;
+let topRenderSpacing = 160;
 const entryRenderHorizontalSpacing = 50;
 const defaultEntryQuantity = 20;
 const enableMachine = false;
+
+const phoneWidth = 450;
 
 let zIndexMax = 10;
 
@@ -15,6 +17,7 @@ const text = "Mira esta página";
 let completeUrl;
 const instagramLink = `https://www.instagram.com/create/story`;
 const facebookLink = `https://www.facebook.com/sharer/sharer.php`;
+const tiktokLink = `https://www.tiktok.com`;
 
 let fonts;
 let styles;
@@ -32,7 +35,7 @@ function loadEntries() {
                 printEntry();
                 printEntries(defaultEntryQuantity);
             }else{
-                printEntries(entries.length);
+                printEntries(defaultEntryQuantity);
             }
         },
         error: function(error) {
@@ -124,7 +127,18 @@ function createEntry(data, random, machine){
     title.style.fontWeight = font.weight;
     title.style.lineHeight = `${font.lineHeight}px`;
     title.style.fontSize = `${font.size}px`;
+
     entry.appendChild(title);
+
+    let description = document.createElement("p");
+    description.textContent = data.description;
+
+    let elipsis = document.createElement("span");
+    elipsis.classList.add('d-none');
+    elipsis.textContent = '...';
+    description.appendChild(elipsis);
+
+    entry.appendChild(description);
 
     let person = "";
 
@@ -150,23 +164,26 @@ function createEntry(data, random, machine){
 
     const twitterLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}?id=${data.id}`;
     completeUrl = `${url}?id=${data.id}`;
+    const whatsappLink = `https://wa.me/?text=${encodeURIComponent(text)}%20${encodeURIComponent(url)}?id=${data.id}`;
     
-    let share = document.createElement("a");
-    share.textContent = "Compartir ->";
-    share.classList.add('shareBtn');
+    // let share = document.createElement("a");
+    // share.textContent = "Compartir ->";
+    // share.classList.add('shareBtn');
 
-    share.addEventListener("click", (e) => {
-        $('#twitter').attr('href', twitterLink);
-        $('#instagram').attr('href', instagramLink);
-        $('#facebook').attr('href', facebookLink);
+    // share.addEventListener("click", (e) => {
+    //     $('#twitter').attr('href', twitterLink);
+    //     $('#whatsapp').attr('href', whatsappLink);
+    //     $('#instagram').attr('href', instagramLink);
+    //     $('#facebook').attr('href', facebookLink);
+    //     $('#tiktok').attr('href', tiktokLink);
 
-        copyToClipboard();
+    //     copyToClipboard();
 
-        e.stopPropagation();
-        $('#shareContainer').removeClass('d-none');
-    });
+    //     e.stopPropagation();
+    //     $('#shareContainer').removeClass('d-none');
+    // });
 
-    footer.appendChild(share);
+    // footer.appendChild(share);
 
     entry.appendChild(footer);
 
@@ -303,6 +320,10 @@ function loadEntry(id){
                 container.style.backgroundPosition = "center";
                 container.style.backgroundRepeat = "no-repeat";
             }else{
+                container.style.backgroundImage = null;
+                container.style.backgroundSize = null;
+                container.style.backgroundPosition = null;
+                container.style.backgroundRepeat = null;
                 container.style.backgroundColor = style.backgroundValue;
             }
 
@@ -327,11 +348,14 @@ function loadEntry(id){
             $('#entryFull').removeClass('d-none');
 
             const twitterLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}?id=${response.id}`;
+            const whatsappLink = `https://wa.me/?text=${encodeURIComponent(text)}%20${encodeURIComponent(url)}?id=${response.id}`;
             completeUrl = `${url}?id=${response.id}`;
 
             $('#twitter').attr('href', twitterLink);
+            $('#whatsapp').attr('href', whatsappLink);
             $('#instagram').attr('href', instagramLink);
             $('#facebook').attr('href', facebookLink);
+            $('#tiktok').attr('href', tiktokLink);
         },
         error: function(error) {
             console.error('Error al añadir la entrada:', error.responseText);
@@ -388,6 +412,12 @@ $(document).ready(async function() {
     await getFonts();
     await getStyles();
 
+    if(window.innerWidth < phoneWidth){
+        entryWidth = 158;
+        entryHeight = 158;
+        topRenderSpacing = 70;
+    }
+
     $('#ticketMachine').width(machineWidth);  // Establece el ancho
     $('#ticketMachine').height(machineHeight);
 
@@ -424,6 +454,7 @@ $(document).ready(async function() {
     });
 
     $('#shareClose').click(function(e) {
+        console.log('aaaaa')
         $('#shareContainer').addClass('d-none');
     });
 });
