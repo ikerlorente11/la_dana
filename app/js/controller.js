@@ -409,52 +409,64 @@ function copyToClipboard(){
 }
 
 $(document).ready(async function() {
-    await getFonts();
-    await getStyles();
+    fetch('js/fonts.json')
+        .then(response => response.json())
+        .then(data => {
+            fonts = data.fonts;
+            fetch('js/styles.json')
+            .then(response => response.json())
+            .then(data => {
+                styles = data.styles;
 
-    if(window.innerWidth < phoneWidth){
-        entryWidth = 158;
-        entryHeight = 158;
-        topRenderSpacing = 70;
-    }
+                if(window.innerWidth < phoneWidth){
+                    entryWidth = 158;
+                    entryHeight = 158;
+                    topRenderSpacing = 70;
+                }
 
-    $('#ticketMachine').width(machineWidth);  // Establece el ancho
-    $('#ticketMachine').height(machineHeight);
+                $('#ticketMachine').width(machineWidth);  // Establece el ancho
+                $('#ticketMachine').height(machineHeight);
 
-    setTimeout(() => {
-        loadEntries();
-    }, 100);
-    
-    const params = new URLSearchParams(window.location.search);
-    if(params.get("id")){
-        loadEntry(params.get("id"));
-    }
+                setTimeout(() => {
+                    loadEntries();
+                }, 100);
+                
+                const params = new URLSearchParams(window.location.search);
+                if(params.get("id")){
+                    loadEntry(params.get("id"));
+                }
 
-    $('#nextEntryBtn').click(function() {
-        printRandomEntry();
-    });
+                $('#nextEntryBtn').click(function() {
+                    printRandomEntry();
+                });
 
-    $('#btnClose').click(function(e) {
-        e.preventDefault();
-        $('#entryForm')[0].reset();
-        toggleForm();
-    });
+                $('#btnClose').click(function(e) {
+                    e.preventDefault();
+                    $('#entryForm')[0].reset();
+                    toggleForm();
+                });
 
-    $('#entryFull').click(function(e) {
-        hideEntries();
-    });
+                $('#entryFull').click(function(e) {
+                    hideEntries();
+                });
 
-    $('#entryFull .container').click(function(e) {
-        e.stopPropagation();
-    });
+                $('#entryFull .container').click(function(e) {
+                    e.stopPropagation();
+                });
 
-    $('#entryFullShare').click(function(e) {
-        copyToClipboard();
-        $('#shareContainer').removeClass('d-none');
-    });
+                $('#entryFullShare').click(function(e) {
+                    copyToClipboard();
+                    $('#shareContainer').removeClass('d-none');
+                });
 
-    $('#shareClose').click(function(e) {
-        console.log('aaaaa')
-        $('#shareContainer').addClass('d-none');
-    });
+                $('#shareClose').click(function(e) {
+                    console.log('aaaaa')
+                    $('#shareContainer').addClass('d-none');
+                });
+            }).catch(
+                error => console.error('Error al cargar el archivo JSON:', error)
+            );
+        }).catch(
+            error => console.error('Error al cargar el archivo JSON:', error)
+        );
 });
