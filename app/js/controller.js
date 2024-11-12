@@ -3,7 +3,8 @@ let entryHeight = 314;
 const machineWidth = 350;
 const machineHeight = 350;
 const entryRenderTopSpacing = 100;
-let topRenderSpacing = 160;
+let topRenderSpacing = 260;
+let bottomRenderSpacing = 130;
 const entryRenderHorizontalSpacing = 50;
 const defaultEntryQuantity = 20;
 const enableMachine = false;
@@ -23,7 +24,7 @@ let fonts;
 let styles;
 
 let entries = [];
-function loadEntries() {
+function loadEntries(preload) {
     $.ajax({
         url: '../php/get_entries.php',
         type: 'GET',
@@ -35,7 +36,16 @@ function loadEntries() {
                 printEntry();
                 printEntries(defaultEntryQuantity);
             }else{
+                if(preload){
+                    entries = data.filter(item => item.id !== preload);
+                    loadEntry(preload);
+                }
+
                 printEntries(defaultEntryQuantity);
+
+                if(preload){
+                    printEntry(preload)
+                }
             }
         },
         error: function(error) {
@@ -53,22 +63,53 @@ function printEntries(quantity){
         machine = {left: machineLeft, right: machineRight};
     }
 
-    while(entries.length > 0 && quantity > 0) {
+    const randomEntries = [];
+
+    for (let i = 0; i < quantity; i++) {
         const randomIndex = Math.floor(Math.random() * entries.length);
         const entry = entries.splice(randomIndex, 1)[0];
-
-        $('#entries').append(createEntry(entry, true, machine));
-
-        quantity--;
+        randomEntries.push(entry.id);
     }
+
+    $.ajax({
+        url: '../php/get_entries.php',
+        type: 'POST',
+        data: {
+            ids: randomEntries,
+        },
+        success: function(data) {
+            data.forEach(entry => {
+                $('#entries').append(createEntry(entry, true, machine));
+            });
+        },
+        error: function(error) {
+            console.error('Error al obtener las entradas:', error.responseText);
+        }
+    });
 }
 
-function printEntry() {
+function printEntry(entry) {
     if(entries.length > 0){
-        const randomIndex = Math.floor(Math.random() * entries.length);
-        const entry = entries.splice(randomIndex, 1)[0];
-    
-        $('#entries').append(createEntry(entry, false));
+        if(!entry){
+            const randomIndex = Math.floor(Math.random() * entries.length);
+            entry = entries.splice(randomIndex, 1)[0].id;
+        }
+
+        $.ajax({
+            url: '../php/get_entries.php',
+            type: 'POST',
+            data: {
+                ids: [entry],
+            },
+            success: function(data) {
+                data.forEach(entry => {
+                    $('#entries').append(createEntry(entry, false));
+                });
+            },
+            error: function(error) {
+                console.error('Error al obtener las entradas:', error.responseText);
+            }
+        });
     }
 }
 
@@ -83,11 +124,7 @@ function createEntry(data, random, machine){
         left = Math.random() * (window.innerWidth - entryWidth);
         const right = left + entryWidth;
 
-        if(right > machine.left - entryRenderHorizontalSpacing && left < machine.right + entryRenderHorizontalSpacing){
-            top = Math.random() * (window.innerHeight - topRenderSpacing - entryHeight - (machineHeight + entryRenderTopSpacing - topRenderSpacing)) + (machineHeight + entryRenderTopSpacing - topRenderSpacing);
-        }else{
-            top = Math.random() * (window.innerHeight - topRenderSpacing - entryHeight - topRenderSpacing) + topRenderSpacing;
-        }
+        top = Math.random() * (window.innerHeight - bottomRenderSpacing - entryHeight - topRenderSpacing) + topRenderSpacing;
     }else{
         left = window.innerWidth / 2 - entryWidth / 2;
         top = machineHeight * .85;
@@ -106,6 +143,8 @@ function createEntry(data, random, machine){
     entry.style.left = left + 'px';
     entry.style.top = top + 'px';
     entry.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+    entry.style.zIndex  = zIndexMax;
+    zIndexMax++;
 
     if(style.background){
         entry.style.backgroundImage = `url('assets/backgrounds/${style.backgroundValue}')`;
@@ -191,7 +230,7 @@ function createEntry(data, random, machine){
         loadEntry(data.id)
     });
 
-    if(random){
+    if(random || !enableMachine){
         entry.hasMoved = true;
     }else{
         entry.hasMoved = false;
@@ -208,18 +247,22 @@ function createEntry(data, random, machine){
         document.body.appendChild(clone);
 
         event.target.style.opacity = '0';
+        event.target.style.width = '0';
+        event.target.style.height = '0';
 
         document.addEventListener('mousemove', (e) => {
             clone.style.left = `${e.pageX - event.layerX}px`;
             clone.style.top = `${e.pageY - event.layerY}px`;
         });
 
-        document.addEventListener('mouseup', () => {
+        document.addEventListener('mouseup', (e) => {
             document.removeEventListener('mousemove', () => {});
             
             event.target.style.left = clone.style.left;
             event.target.style.top = clone.style.top;
             event.target.style.opacity = '1';
+            event.target.style.width = entryWidth + 'px';
+            event.target.style.height = entryHeight + 'px';
 
             document.body.removeChild(clone);
 
@@ -302,6 +345,8 @@ function loadEntry(id){
         type: 'POST',
         data: {id: id},
         success: function(response) {
+
+
             const font = fonts.find(f => f.id == response.font);
             const style = styles.find(s => s.id == response.style);
 
@@ -421,23 +466,21 @@ $(document).ready(async function() {
                 if(window.innerWidth < phoneWidth){
                     entryWidth = 158;
                     entryHeight = 158;
-                    topRenderSpacing = 70;
+                    topRenderSpacing = 160;
                 }
 
                 $('#ticketMachine').width(machineWidth);  // Establece el ancho
                 $('#ticketMachine').height(machineHeight);
-
-                setTimeout(() => {
-                    loadEntries();
-                }, 100);
                 
                 const params = new URLSearchParams(window.location.search);
                 if(params.get("id")){
-                    loadEntry(params.get("id"));
+                    loadEntries(params.get("id"));
+                }else{
+                    loadEntries();
                 }
 
-                $('#nextEntryBtn').click(function() {
-                    printRandomEntry();
+                $('#moreBtn').click(function() {
+                    printEntry();
                 });
 
                 $('#btnClose').click(function(e) {
@@ -460,7 +503,6 @@ $(document).ready(async function() {
                 });
 
                 $('#shareClose').click(function(e) {
-                    console.log('aaaaa')
                     $('#shareContainer').addClass('d-none');
                 });
             }).catch(

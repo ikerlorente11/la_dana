@@ -3,7 +3,12 @@
 
     $conn = getDBConnection();
 
-    $sql = "SELECT * FROM entries";
+    $sql = "SELECT id FROM entries";
+
+    if(!empty($_POST['ids'])){
+        $sql = "SELECT * FROM entries WHERE id IN (" . implode (",", $_POST['ids'] ) . ")";
+    }
+
     $result = $conn->query($sql);
 
     $entries = [];

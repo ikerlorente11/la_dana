@@ -14,6 +14,7 @@
 <body>
     <div id="notification">URL copiada al portapapeles</div>
     <a id="title" href="/">La Dana Relatos</a>
+    <h1 id="slogan">Hagamos de esto vuestra historia</h1>
 
     <div class="machineContainer">
         <div id="ticketMachine">
@@ -67,6 +68,7 @@
             Escribir relato
             <i id="btnShowForm" class="fa-solid fa-plus btnShowForm"></i>
         </a>
+        <div id="moreBtn">Ver más relatos</div>
         <a id="infoBtn" href="info.php">
             Info
         </a>

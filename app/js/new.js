@@ -224,7 +224,7 @@ function checkForm(){
                 type: 'POST',
                 data: newEntry,
                 success: function(response) {
-                    window.location.href = '/';
+                    window.location.href = `/?id=${response.id}`;
                 },
                 error: function(error) {
                     console.error('Error al añadir la entrada:', error.responseText);

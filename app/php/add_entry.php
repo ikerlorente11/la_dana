@@ -16,7 +16,11 @@
         $sql = "INSERT INTO entries (author, location, title, description, font, style) VALUES ($author, $location, '$title', '$description', $font, $style)";
         
         if ($conn->query($sql) === TRUE) {
-            echo json_encode(['success' => 'Entrada añadida exitosamente']);
+            $last_id = $conn->insert_id; // Obtiene el último ID insertado
+            echo json_encode([
+                'success' => 'Entrada añadida exitosamente',
+                'id' => $last_id // Devuelve el ID de la entrada creada
+            ]);
         } else {
             echo json_encode(['error' => 'Error al añadir la entrada: ' . $conn->error]);
         }
