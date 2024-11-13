@@ -65,31 +65,33 @@ function printEntries(quantity){
 
     const randomEntries = [];
 
-    for (let i = 0; i < quantity; i++) {
+    for (let i = 0; i < quantity && entries.length > 0; i++) {
         const randomIndex = Math.floor(Math.random() * entries.length);
         const entry = entries.splice(randomIndex, 1)[0];
         randomEntries.push(entry.id);
     }
 
-    $.ajax({
-        url: '../php/get_entries.php',
-        type: 'POST',
-        data: {
-            ids: randomEntries,
-        },
-        success: function(data) {
-            data.forEach(entry => {
-                $('#entries').append(createEntry(entry, true, machine));
-            });
-        },
-        error: function(error) {
-            console.error('Error al obtener las entradas:', error.responseText);
-        }
-    });
+    if(randomEntries.length > 0){
+        $.ajax({
+            url: '../php/get_entries.php',
+            type: 'POST',
+            data: {
+                ids: randomEntries,
+            },
+            success: function(data) {
+                data.forEach(entry => {
+                    $('#entries').append(createEntry(entry, true, machine));
+                });
+            },
+            error: function(error) {
+                console.error('Error al obtener las entradas:', error.responseText);
+            }
+        });
+    }
 }
 
 function printEntry(entry) {
-    if(entries.length > 0){
+    if(entries.length > 0 || entry){
         if(!entry){
             const randomIndex = Math.floor(Math.random() * entries.length);
             entry = entries.splice(randomIndex, 1)[0].id;
