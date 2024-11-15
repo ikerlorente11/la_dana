@@ -325,18 +325,25 @@ body{
     padding: 0 2rem 2rem 0;
 }
 
-#navBtns span{
+#navBtns > span{
     cursor: pointer;
+    z-index: 1000;
+    position: relative;
 }
 
 #font, #style, #page{
     position: absolute;
-    bottom: 0;
     width: 1100px;
     height: 1068px;
     display: flex;
     flex-direction: column;
     z-index: 1000;
+}
+
+#page{
+    max-height: 85%;
+    bottom: 0;
+    max-width: 95%;
 }
 
 #page form{
@@ -514,7 +521,7 @@ body{
         line-height: 20.03px;
         width: 200px;
         display: block;
-        margin: 1rem 0 2rem 1rem;
+        margin: 1rem 0 0 1rem;
     }
 
     #slogan{
@@ -594,6 +601,7 @@ body{
 
     #entryFull .title, #newTitle{
         margin: 1rem auto;
+        max-width: 100%;
 
         font-size: 24px !important;
         line-height: 32px !important;
@@ -648,13 +656,19 @@ body{
         width: 100% !important;
     }
 
+    #page{
+        position: absolute !important;
+        bottom: 3rem !important;
+        width: 95% !important;
+        max-height: 79% !important;
+    }
+
     .newContent h1 {
         font-size: 36px !important;
         line-height: 44px !important;
     }
 
     .newContent div .list {
-        width: 330px !important;
         max-height: 60vh;
         overflow-y: scroll;
         overflow-x: hidden;
