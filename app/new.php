@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="js/new.js" defer></script>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="canonical" href="https://ladanarelatos.ct.ws/">
 
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
 </head>
