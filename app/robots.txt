@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /scripts/
+Disallow: /js/
+Disallow: /php/
+Disallow: /styles/
+Allow: /
+
+Sitemap: https://ladanarelatos.ct.ws/sitemap.xml

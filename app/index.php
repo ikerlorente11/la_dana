@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>La Dana Relatos</title>
+    <title>La Dana Relatos | Historias de Superación y Lucha</title>
+    <meta name="description" content="Un espacio para compartir historias sobre momentos difíciles. Da voz a tus experiencias o las de quienes no pueden hacerlo.">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="js/controller.js" defer></script>
